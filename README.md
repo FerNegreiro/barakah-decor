@@ -2,9 +2,7 @@
 
 Sistema web desenvolvido sob medida para uma loja de embalagens e decorações que controlava o estoque e as vendas de forma manual. Fui responsável pelo projeto de ponta a ponta: entendimento da necessidade, desenvolvimento do backend e do frontend, deploy em nuvem e manutenção.
 
-> Projeto real, usado pela cliente em produção e divulgado aqui com autorização. Todos os dados exibidos nas imagens são fictícios.
-
-![Dashboard](docs/dashboard.png)
+> Projeto real, usado pela cliente em produção e divulgado aqui com autorização.
 
 ---
 
@@ -33,19 +31,14 @@ Um sistema web acessível pelo navegador, com login, que concentra estoque, vend
 | **Usuários** | Perfis de Administrador e Operador, com redefinição de senha e bloqueio de acesso |
 | **Configurações** | Dados da empresa e regras de alerta compartilhadas entre todos os computadores |
 
-<p align="center">
-  <img src="docs/produtos.png" width="49%" alt="Tela de produtos" />
-  <img src="docs/relatorios.png" width="49%" alt="Tela de relatórios" />
-</p>
-
 ---
 
 ## Stack
 
-**Backend:** Python, FastAPI, SQLAlchemy, Pydantic, ReportLab (PDF) e OpenPyXL (Excel)
-**Frontend:** React, Vite, Tailwind CSS, Recharts, Axios e Lucide Icons
-**Banco de dados:** PostgreSQL no Neon (SQLite no desenvolvimento local)
-**Infraestrutura:** Render, com deploy automático a cada push na branch `main`
+- **Backend:** Python, FastAPI, SQLAlchemy, Pydantic, ReportLab (PDF) e OpenPyXL (Excel)
+- **Frontend:** React, Vite, Tailwind CSS, Recharts, Axios e Lucide Icons
+- **Banco de dados:** PostgreSQL no Neon (SQLite no desenvolvimento local)
+- **Infraestrutura:** Render, com deploy automático a cada push na branch `main`
 
 ## Arquitetura
 
@@ -157,4 +150,4 @@ Acesse `http://localhost:5173`.
 
 ---
 
-Desenvolvido por **Fernando Ivo Negreiro da Silva** · [GitHub](https://github.com/FerNegreiro)
+Desenvolvido por **Fernando Ivo Negreiro da Silva** · [Linkedin](https://www.linkedin.com/in/fernando-negreiro-06a3582a2)
