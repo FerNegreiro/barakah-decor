@@ -1,0 +1,33 @@
+# dependencies
+node_modules/
+frontend/node_modules/
+backend/venv/
+
+# build output
+dist/
+frontend/dist/
+
+# local database and generated files
+*.db
+backend/*.db
+backend/*.xlsx
+backend/*.pdf
+backend/uploads/
+
+# caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# environment variables
+.env
+*.env
+!.env.example
+
+# editor and OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
