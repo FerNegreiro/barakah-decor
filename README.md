@@ -31,6 +31,40 @@ Um sistema web acessível pelo navegador, com login, que concentra estoque, vend
 | **Usuários** | Perfis de Administrador e Operador, com redefinição de senha e bloqueio de acesso |
 | **Configurações** | Dados da empresa e regras de alerta compartilhadas entre todos os computadores |
 
+## Telas
+
+> As imagens usam **dados fictícios** gerados pelo script `backend/seed_demo.py`. Nenhum dado real da cliente aparece aqui.
+
+**Login**
+
+![Tela de login](docs/screenshots/01-login.png)
+
+**Dashboard:** vendas do dia e do mês, gráfico dos últimos dias, produtos acabando, mais vendidos e resumo financeiro
+
+![Dashboard](docs/screenshots/02-dashboard.png)
+
+**Alertas de estoque:** sem estoque, crítico e atenção, com sugestão de reposição
+
+![Alertas](docs/screenshots/03-alertas.png)
+
+**Produtos**
+
+![Produtos](docs/screenshots/04-produtos.png)
+
+**Financeiro**
+
+![Financeiro](docs/screenshots/05-financeiro.png)
+
+**Relatórios:** indicadores gerenciais e exportação em PDF e Excel
+
+![Relatórios](docs/screenshots/06-relatorios.png)
+
+![Produtos em atenção nos relatórios](docs/screenshots/07-produtos-em-atencao.png)
+
+**Usuários:** perfis de Administrador e Operador, com bloqueio de acesso
+
+![Usuários](docs/screenshots/08-usuarios.png)
+
 ---
 
 ## Stack
@@ -79,6 +113,8 @@ frontend/
 
 **Relatórios gerados em memória.** PDF e Excel são montados direto na resposta, sem gravar arquivos no servidor. Isso evita conflito entre downloads simultâneos e não deixa dados da loja salvos em disco.
 
+**Comparação justa entre meses.** O card de vendas do mês comparava os dias corridos do mês atual com o mês anterior inteiro, o que sempre mostrava queda no começo do mês. Hoje a comparação é feita com o mesmo período do mês anterior (por exemplo, 1 a 12 de novembro contra 1 a 12 de outubro).
+
 **Dependências com versão fixa.** Uma atualização de biblioteca chegou a quebrar o deploy. Fixar as versões no `requirements.txt` e a versão do Python garantiu que o que funciona localmente funcione em produção.
 
 ## Segurança e LGPD
@@ -123,6 +159,16 @@ npm run dev
 ```
 
 Acesse `http://localhost:5173`.
+
+**Dados de demonstração (opcional)**
+
+Para ver o sistema preenchido sem cadastrar nada, rode dentro de `backend` antes de subir a API:
+
+```bash
+python seed_demo.py
+```
+
+O script cria produtos, fornecedores, usuários e 75 dias de vendas e lançamentos financeiros, todos fictícios. Depois é só entrar com `admin@demo.com` e a senha `demo1234`. Ele só funciona com o SQLite local, recusa rodar contra um PostgreSQL e faz backup do banco anterior antes de recriar os dados. Com o Pillow instalado (`pip install pillow`), também gera imagens para os produtos.
 
 ## Variáveis de ambiente
 

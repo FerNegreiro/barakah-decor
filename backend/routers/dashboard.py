@@ -43,6 +43,11 @@ def dashboard(
     inicio_mes = datetime.combine(hoje.replace(day=1), time.min)
     fim_mes_anterior = inicio_mes - timedelta(microseconds=1)
     inicio_mes_anterior = datetime.combine(fim_mes_anterior.date().replace(day=1), time.min)
+    dia_limite_comparacao = min(hoje.day, fim_mes_anterior.day)
+    fim_comparacao_mes = datetime.combine(
+        fim_mes_anterior.date().replace(day=dia_limite_comparacao),
+        time.max
+    )
 
     def intervalo_por_filtro(filtro):
         if filtro == "mes_passado":
@@ -142,7 +147,7 @@ def dashboard(
         movimento.valor_total or 0
         for movimento in saidas
         if normalizar_data(movimento.data)
-        and inicio_mes_anterior <= normalizar_data(movimento.data) <= fim_mes_anterior
+        and inicio_mes_anterior <= normalizar_data(movimento.data) <= fim_comparacao_mes
     )
 
     def calcular_variacao(atual, anterior):
